@@ -1,0 +1,7 @@
+<% if current_user.profile_photo.file != nil%>
+  <div class="media-object-section">
+    <div class="thumbnail">
+      <%= image_tag current_user.profile_photo %>
+    </div>
+  </div>
+<% end %>
