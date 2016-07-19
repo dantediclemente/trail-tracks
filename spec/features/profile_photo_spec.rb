@@ -2,6 +2,7 @@ require "rails_helper"
 
 feature "profile photo" do
   scenario "user uploads a profile photo" do
+    pending
     visit new_user_registration_path
 
     fill_in "Email", with: "ash@s-mart.com"
