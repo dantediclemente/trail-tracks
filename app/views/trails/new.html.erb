@@ -1,0 +1,33 @@
+<h3>New Trail Form</h3>
+
+<div class="row large-6 columns ">
+  <%= form_for @trail do |f| %>
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name %>
+
+  <%= f.label :park_name, "Park Name" %>
+  <%= f.text_field :park_name %>
+
+  <%= f.label :lat, "Latitude" %>
+  <%= f.text_field :lat %>
+
+  <%= f.label :lng , "Longitude" %>
+  <%= f.text_field :lng %>
+
+  <%= f.label :distance , "Distance" %>
+  <%= f.text_field :distance %>
+
+  <div id="date-hiked">
+    <%= f.label :date_hiked , "Date hiked" %>
+    <%= f.date_select :date_hiked %>
+  </div>
+
+  <%= f.label :rating , "Rating" %>
+  <%= f.collection_radio_buttons(:rating, @rating_collection, :first, :last) %>
+
+  <%= f.label :hiked , "Have you hiked it?" %>
+  <%= f.check_box :hiked %>
+
+  <%= f.submit "Add Trail"%>
+  <% end %>
+</div>

@@ -1,0 +1,11 @@
+<%= @trail.hiked %><br>
+<%= @trail.date_hiked %><br>
+<%= @trail.name %><br>
+<%= @trail.park_name %><br>
+<%= @trail.lat %><br>
+<%= @trail.lng %><br>
+<%= @trail.distance %><br>
+<%= @trail.rating %><br>
+
+<%= link_to "Edit Trail", edit_trail_path(@trail)%>
+<%= link_to "Delete Trail", trail_path(@trail), data: { :confirm => "Are you sure?" }, method: :delete %>
