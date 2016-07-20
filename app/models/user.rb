@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
              unless user
                  user = User.create(
                     email: data["email"],
+                    profile_photo: data["image"],
                     password: Devise.friendly_token[0,20]
                  )
              end

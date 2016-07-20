@@ -3,5 +3,8 @@ Rails.application.routes.draw do
 
   root 'trails#index'
 
-  resources :trails
+  authenticate :user do
+    resources :trails, only: [:new, :create, :edit, :update, :destroy]
+  end
+  resources :trails, only: [:index, :show]
 end

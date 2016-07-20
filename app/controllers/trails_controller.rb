@@ -1,4 +1,6 @@
 class TrailsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index, :show]
+
   def index
     @trails = Trail.all
   end
@@ -14,6 +16,7 @@ class TrailsController < ApplicationController
 
   def create
     @trail = Trail.new(trail_params)
+    @trail.user_id = current_user.id
     @rating_collection = Trail::RATING
 
     if @trail.save
