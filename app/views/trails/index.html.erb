@@ -1,3 +1,7 @@
-<% @trails.each do |trail| %>
-  <%= trail.name %>
-<% end %>
+<div class="row all-trails">
+  <div class="large-6 large-centered column">
+    <% @trails.each do |trail| %>
+    <%=link_to trail.name, trail_path(trail) %>
+    <% end %>
+  </div>
+</div>

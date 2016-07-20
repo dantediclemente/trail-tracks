@@ -7,5 +7,7 @@
 <%= @trail.distance %><br>
 <%= @trail.rating %><br>
 
-<%= link_to "Edit Trail", edit_trail_path(@trail)%>
-<%= link_to "Delete Trail", trail_path(@trail), data: { :confirm => "Are you sure?" }, method: :delete %>
+<% if current_user.id == @trail.user_id %>
+  <%= link_to "Edit Trail", edit_trail_path(@trail)%>
+  <%= link_to "Delete Trail", trail_path(@trail), data: { :confirm => "Are you sure?" }, method: :delete %>
+<% end %>

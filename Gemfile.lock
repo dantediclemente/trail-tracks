@@ -396,6 +396,7 @@ DEPENDENCIES
   foundation-rails
   jquery-rails
   launchy
+  omniauth
   omniauth-google-oauth2
   pg (~> 0.15)
   pry-rails

@@ -22,6 +22,7 @@
         <ul class="dropdown menu" data-dropdown-menu style="max-width: 300px;">
           <% if user_signed_in? %>
           <li>
+            <span> <%= image_tag(current_user.profile_photo, class: "avatar") %></span>
             <a href="#">Profile</a>
             <ul class="menu">
                 <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
