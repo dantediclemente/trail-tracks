@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  mount_uploader :profile_photo, ProfilePhotoUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -14,7 +13,6 @@ class User < ActiveRecord::Base
              unless user
                  user = User.create(
                     email: data["email"],
-                    profile_photo: data["image"],
                     password: Devise.friendly_token[0,20]
                  )
              end

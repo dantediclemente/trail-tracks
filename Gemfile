@@ -8,8 +8,6 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'omniauth'
 gem "omniauth-google-oauth2"
-gem "carrierwave"
-gem "fog"
 gem 'foundation-rails'
 
 group :development, :test do
