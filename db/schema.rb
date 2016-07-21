@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20160719233350) do
     t.float   "distance",                             null: false
     t.date    "date_hiked",                           null: false
     t.integer "rating"
-    t.boolean "hiked",                                null: false
+    t.boolean "hiked"
     t.float   "duration"
     t.text    "description"
     t.integer "user_id",                              null: false

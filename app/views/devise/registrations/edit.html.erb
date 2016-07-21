@@ -1,7 +1,7 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2 style="text-align: center;">EDIT PROFILE</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<div class="row large-6 columns">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -9,15 +9,15 @@
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
     <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+    <br />
+    <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
 
@@ -31,18 +31,16 @@
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
 
-  <div class="field">
-    <%= f.label :profile_photo %>
-    <%= f.file_field :profile_photo %>
-  </div>
-
-  <div class="actions">
+  <div style="text-align: center;" class="actions">
     <%= f.submit "Update" %>
   </div>
-<% end %>
+  <% end %>
 
-<h3>Cancel my account</h3>
+</div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+<div style="text-align: center;" class="row large-6 columns">
 
-<%= link_to "Back", :back %>
+  <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+  <%= link_to "Back", :back %>
+</div><br><br>

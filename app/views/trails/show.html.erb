@@ -4,7 +4,7 @@
 <%= @trail.park_name %><br>
 <%= @trail.lat %><br>
 <%= @trail.lng %><br>
-<%= @trail.distance %><br>
+<p>Distance: <%= @trail.distance %></p><br>
 <%= @trail.rating %><br>
 
 <% if current_user.id == @trail.user_id %>

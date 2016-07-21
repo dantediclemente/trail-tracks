@@ -1,7 +1,8 @@
-<div class="row all-trails">
-  <div class="large-6 large-centered column">
-    <% @trails.each do |trail| %>
-    <%=link_to trail.name, trail_path(trail) %>
-    <% end %>
-  </div>
+<div class="row all-trails"><br>
+  <% @hiked_trails.each do |trail| %>
+    <div class="large-3 small-6 columns end callout secondary">
+      <%=link_to trail.name, trail_path(trail) %><br>
+      <p>Rating: <%= trail.rating %></p>
+    </div>
+  <% end %>
 </div>

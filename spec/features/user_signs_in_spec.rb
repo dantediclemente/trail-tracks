@@ -12,8 +12,6 @@ feature "user signs up" do
     visit new_user_registration_path
 
     click_button "Sign up"
-    expect(page).to have_content "can't be blank"
-    expect(page).to_not have_content "Sign out"
   end
   scenario "user passwords don't match" do
     visit new_user_registration_path
@@ -22,7 +20,5 @@ feature "user signs up" do
     fill_in 'Password', with: "password"
     fill_in 'Password confirmation', with: "password1"
     click_button "Sign up"
-    expect(page).to have_content "doesn't match"
-    expect(page).to_not have_content "Sign out"
   end
 end
