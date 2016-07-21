@@ -9,6 +9,8 @@ gem 'devise'
 gem 'omniauth'
 gem "omniauth-google-oauth2"
 gem 'foundation-rails'
+gem "highcharts-rails"
+gem 'lazy_high_charts'
 
 group :development, :test do
   gem 'capybara'

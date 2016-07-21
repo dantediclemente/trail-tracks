@@ -1,7 +1,9 @@
-<h2>Sign up</h2>
+<div class="row large-6 columns">
+  <h2 style="text-align: center;">SIGN UP</h2>
+</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<div class="row large-6 columns">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
   <div class="field">
     <%= f.label :email %><br />
@@ -21,14 +23,13 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="field">
-    <%= f.label :profile_photo %>
-    <%= f.file_field :profile_photo %>
-  </div>
-
-  <div class="actions">
+  <div style="text-align: center;" class="actions">
     <%= f.submit "Sign up" %>
   </div>
-<% end %>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+</div>
+
+<div style="text-align: center;" class="row large-6 columns">
+  <%= render "devise/shared/links" %>
+</div>

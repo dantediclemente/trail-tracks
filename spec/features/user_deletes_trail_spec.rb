@@ -12,7 +12,7 @@ feature "deleting a trail" do
     fill_in 'Longitude', with: 42.3601
     fill_in 'Distance', with: 2.9
     page.find('#date-hiked').set("02-01-2001")
-    choose(5)
+    select(5, from: 'Rating')
     check 'hiked'
 
     click_button "Add Trail"

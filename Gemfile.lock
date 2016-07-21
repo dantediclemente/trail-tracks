@@ -86,7 +86,10 @@ GEM
       sprockets-es6 (>= 0.9.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    hash-deep-merge (0.1.1)
     hashie (3.4.4)
+    highcharts-rails (4.2.5)
+      railties (>= 3.1)
     i18n (0.7.0)
     jquery-rails (4.1.1)
       rails-dom-testing (>= 1, < 3)
@@ -96,6 +99,8 @@ GEM
     jwt (1.5.4)
     launchy (2.4.3)
       addressable (~> 2.3)
+    lazy_high_charts (1.5.5)
+      hash-deep-merge
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
@@ -246,8 +251,10 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   foundation-rails
+  highcharts-rails
   jquery-rails
   launchy
+  lazy_high_charts
   omniauth
   omniauth-google-oauth2
   pg (~> 0.15)

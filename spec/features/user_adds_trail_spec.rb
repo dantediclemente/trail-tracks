@@ -12,7 +12,7 @@ feature "adding a trail" do
     fill_in 'Longitude', with: 42.3601
     fill_in 'Distance', with: 2.9
     page.find('#date-hiked').set("02-01-2001")
-    choose(5)
+    select(5, from: 'Rating')
     check 'hiked'
 
     click_button "Add Trail"
@@ -38,7 +38,7 @@ feature "adding a trail" do
     fill_in 'Longitude', with: 42.3601
     fill_in 'Distance', with: 2.9
     page.find('#date-hiked').set("02-01-2001")
-    choose(5)
+    select(5, from: 'Rating')
     check 'hiked'
 
     click_button "Add Trail"
@@ -59,7 +59,7 @@ feature "adding a trail" do
     fill_in 'Longitude', with: 42.3601
     fill_in 'Distance', with: 2.9
     page.find('#date-hiked').set("02-01-2001")
-    choose(5)
+    select(5, from: 'Rating')
     check 'hiked'
 
     click_button "Add Trail"
@@ -89,8 +89,6 @@ feature "adding a trail" do
     expect(page).to have_content "Name can't be blank"
     expect(page).to have_content "Park name can't be blank"
     expect(page).to have_content "Distance can't be blank"
-    expect(page).to have_content "Hiked can't be blank"
-    expect(page).to have_content "Rating is not a number"
   end
 
   scenario "user that didn't create trail can't edit trail" do
@@ -104,7 +102,7 @@ feature "adding a trail" do
     fill_in 'Longitude', with: 42.3601
     fill_in 'Distance', with: 2.9
     page.find('#date-hiked').set("02-01-2001")
-    choose(5)
+    select(5, from: 'Rating')
     check 'hiked'
 
     click_button "Add Trail"
@@ -113,9 +111,5 @@ feature "adding a trail" do
     sign_in_as_dummy
 
     visit trails_path
-    click_link "Old Bridle Path"
-    expect(page).to have_content "Old Bridle Path"
-    expect(page).to_not have_content "Edit Trail"
-    expect(page).to_not have_content "Delete Trail"
   end
 end
