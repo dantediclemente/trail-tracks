@@ -1,24 +1,26 @@
 class TrailsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:home]
   def home
-    trails = Trail.all
-    my_trails = trails.where(user_id: current_user.id)
-    hiked_trails = my_trails.where(hiked: true)
-    trail_years = hiked_trails.sort_by { |trail| trail["date_hiked"] }
-    years = []
-    trail_years.each do |trail|
-      split_date = trail.date_hiked.to_s.split("-")
-      years << split_date[0]
-    end
-    distances = []
-    trail_years.each do |trail|
-      distances << trail.distance
-    end
-    @timeline = LazyHighCharts::HighChart.new('graph') do |f|
-      f.title(text: "Trail Timeline")
-      f.options[:chart][:defaultSeriesType] = "line"
-      f.xAxis(categories: years.map { |year| year.to_s.split("-")[0].to_i })
-      f.series(:name=>'Distance (mi.)', :data=> distances)
+    if user_signed_in?
+      trails = Trail.all
+      my_trails = trails.where(user_id: current_user.id)
+      hiked_trails = my_trails.where(hiked: true)
+      trail_years = hiked_trails.sort_by { |trail| trail["date_hiked"] }
+      years = []
+      trail_years.each do |trail|
+        split_date = trail.date_hiked.to_s.split("-")
+        years << split_date[0]
+      end
+      distances = []
+      trail_years.each do |trail|
+        distances << trail.distance
+      end
+      @timeline = LazyHighCharts::HighChart.new('graph') do |f|
+        f.title(text: "Trail Timeline")
+        f.options[:chart][:defaultSeriesType] = "line"
+        f.xAxis(categories: years.map { |year| year.to_s.split("-")[0].to_i })
+        f.series(:name=>'Distance (mi.)', :data=> distances)
+      end
     end
   end
 

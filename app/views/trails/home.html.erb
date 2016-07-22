@@ -1,3 +1,14 @@
-<div id="container">
-</div>
-<%= high_chart("my_id", @timeline) %>
+<% if user_signed_in? %>
+  <%= high_chart("my_id", @timeline) %>
+  <div row large-12 columns>
+    <div class="hidden" id="map" style='width: 600px; height: 400px; margin: 2%;'></div>
+  </div>
+<% else %>
+  <div class="landing-page">
+    <div class="google-sign-in row large-6 columns">
+      <%= link_to user_google_oauth2_omniauth_authorize_path do %>
+        <%= image_tag "https://developers.google.com/identity/images/btn_google_signin_light_normal_web.png" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

@@ -12,9 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require gmaps/google
+//= require underscore
 //= require foundation
+//= require map
 //= require_tree .
-//= require highcharts
 //= require highcharts/highcharts
 //= require highcharts/highcharts-more
 //= require highcharts/highstock

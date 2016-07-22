@@ -11,6 +11,9 @@ gem "omniauth-google-oauth2"
 gem 'foundation-rails'
 gem "highcharts-rails"
 gem 'lazy_high_charts'
+gem 'gmaps4rails'
+gem 'underscore-rails'
+gem 'coffee-script'
 
 group :development, :test do
   gem 'capybara'
