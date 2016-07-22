@@ -23,7 +23,6 @@ feature "adding a trail" do
     expect(page).to have_content "42.3601"
     expect(page).to have_content "2.9"
     expect(page).to have_content "5"
-    expect(page).to have_content "true"
 
   end
 
@@ -49,7 +48,6 @@ feature "adding a trail" do
     expect(page).to have_content "42.3601"
     expect(page).to have_content "2.9"
     expect(page).to have_content "5"
-    expect(page).to have_content "true"
 
     click_link "Edit Trail"
 
@@ -70,7 +68,6 @@ feature "adding a trail" do
     expect(page).to have_content "42.3601"
     expect(page).to have_content "2.9"
     expect(page).to have_content "5"
-    expect(page).to have_content "true"
   end
 
   scenario "user not signed in tries to create trail" do

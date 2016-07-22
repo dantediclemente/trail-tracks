@@ -1,13 +1,22 @@
-<%= @trail.hiked %><br>
-<%= @trail.date_hiked %><br>
-<%= @trail.name %><br>
-<%= @trail.park_name %><br>
-<%= @trail.lat %><br>
-<%= @trail.lng %><br>
-<p>Distance: <%= @trail.distance %></p><br>
-<%= @trail.rating %><br>
+<div class="row">
+  <div class="trail-info large-6 columns">
+    <h4 style="text-align: center;"><%= @trail.name %></h4><br>
+    <span>Park Name: <%= @trail.park_name %></span><br>
+    <span>Date: <%= @trail.date_hiked %></span><br>
+    <span>Distance: <%= @trail.distance %></span><br>
+    <span>Rating: <%= @trail.rating %></span><br>
+    <% if @trail.lat != "" && @trail.lng != "" %>
+      <span>Latitude: <%= @trail.lat %></span><br>
+      <span>Longitude: <%= @trail.lng %></span><br>
+    <% end %>
+    <span style="white-space: pre-line;"><%= @trail.description %></span><br>
+    <% if current_user.id == @trail.user_id %>
+    <%= link_to "Edit Trail", edit_trail_path(@trail)%>
+    <%= link_to "Delete Trail", trail_path(@trail), data: { :confirm => "Are you sure?" }, method: :delete %>
+    <% end %>
+  </div>
 
-<% if current_user.id == @trail.user_id %>
-  <%= link_to "Edit Trail", edit_trail_path(@trail)%>
-  <%= link_to "Delete Trail", trail_path(@trail), data: { :confirm => "Are you sure?" }, method: :delete %>
-<% end %>
+  <div class="large-6 columns">
+    <div id="map" style='width: 600px; height: 500px; margin: 2%;'></div>
+  </div>
+</div>

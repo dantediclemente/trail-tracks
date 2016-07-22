@@ -1,7 +1,7 @@
 <div class="row all-trails"><br>
   <% @hiked_trails.each do |trail| %>
     <div class="large-3 small-6 columns end callout secondary">
-      <%=link_to trail.name, trail_path(trail) %><br>
+      <%=link_to trail.name, trail_path(trail)%><br>
       <p>Rating: <%= trail.rating %></p>
     </div>
   <% end %>
