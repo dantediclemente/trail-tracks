@@ -1,8 +1,27 @@
-<div class="row all-trails"><br>
-  <% @hiked_trails.each do |trail| %>
-    <div class="large-3 small-6 columns end callout secondary">
-      <%=link_to trail.name, trail_path(trail)%><br>
-      <p>Rating: <%= trail.rating %></p>
-    </div>
-  <% end %>
+<div class="row">
+      <div class="large-6 columns all-trails connectedSortable"><br>
+        <h4>Hiked Trails</h4>
+        <ul id="true" class="connectedSortable">
+        <% @hiked_trails.each do |trail| %>
+        <div class="trail large-3 small-6 columns end callout secondary", data-hiked="<%= trail.hiked %>">
+          <li class="ui-state-highlight">
+          <%=link_to trail.name, trail_path(trail)%><br>
+        </li>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+
+      <div class="large-6 columns all-trails connectedSortable"><br>
+        <h4>Wish List</h4>
+        <ul id="false" class="connectedSortable">
+        <% @wish_trails.each do |trail| %>
+        <div class="trail large-3 small-6 columns end callout secondary", data-hiked="<%= trail.hiked %>">
+          <li class="ui-state-highlight">
+          <%=link_to trail.name, trail_path(trail)%><br>
+        </li>
+        </div>
+      <% end %>
+    </ul>
+  </div>
 </div>

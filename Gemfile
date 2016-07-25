@@ -14,6 +14,7 @@ gem 'lazy_high_charts'
 gem 'gmaps4rails'
 gem 'underscore-rails'
 gem 'coffee-script'
+gem 'jquery-ui-rails'
 
 group :development, :test do
   gem 'capybara'

@@ -1,5 +1,11 @@
 // @import "*";
 @import "foundation_and_overrides";
+@import "jquery-ui";
+
+*{
+font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+
+}
 
 li {
   list-style: none;
@@ -20,7 +26,7 @@ li {
 .callout {
   height: 100px;
   margin-bottom: 10px;
-  padding-top: 25px;
+  padding-top: 40px;
 }
 
 .landing-page {
