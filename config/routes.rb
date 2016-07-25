@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   resources :trails, only: [:index, :show]
 
   namespace :api do
-    resources :trails, only: [:show]
+    resources :trails, only: [:show, :index]
   end
 end

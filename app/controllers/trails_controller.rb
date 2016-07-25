@@ -5,22 +5,26 @@ class TrailsController < ApplicationController
       trails = Trail.all
       my_trails = trails.where(user_id: current_user.id)
       hiked_trails = my_trails.where(hiked: true)
-      trail_years = hiked_trails.sort_by { |trail| trail["date_hiked"] }
-      years = []
-      trail_years.each do |trail|
-        split_date = trail.date_hiked.to_s.split("-")
-        years << split_date[0]
+
+    trails_by_year = hiked_trails.group_by { |key| key["date_hiked"].year }.values
+
+    trail_distance_by_year = {}
+    trails_by_year.each do |group|
+      trail_sum = []
+      group.each do |trail|
+        trail_sum << trail.distance
+        trail_distance_by_year[trail["date_hiked"].year] = trail_sum.sum
       end
-      distances = []
-      trail_years.each do |trail|
-        distances << trail.distance
-      end
-      @timeline = LazyHighCharts::HighChart.new('graph') do |f|
-        f.title(text: "Trail Timeline")
-        f.options[:chart][:defaultSeriesType] = "line"
-        f.xAxis(categories: years.map { |year| year.to_s.split("-")[0].to_i })
-        f.series(:name=>'Distance (mi.)', :data=> distances)
-      end
+    end
+
+    @sorted = trail_distance_by_year.sort
+
+    @timeline = LazyHighCharts::HighChart.new('graph') do |f|
+      f.title(text: "Trail Timeline")
+      f.options[:chart][:defaultSeriesType] = "line"
+      f.xAxis(categories: @sorted.map { |year| year[0] })
+      f.series(:name=>'Distance (mi.)', :data=> @sorted.map { |year| year[1] })
+    end 
     end
   end
 

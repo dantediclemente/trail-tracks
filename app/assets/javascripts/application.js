@@ -16,6 +16,8 @@
 //= require underscore
 //= require foundation
 //= require map
+//= require jquery-ui
+//= require wishlist
 //= require_tree .
 //= require highcharts/highcharts
 //= require highcharts/highcharts-more

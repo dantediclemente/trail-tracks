@@ -5,7 +5,7 @@
     <span>Date: <%= @trail.date_hiked %></span><br>
     <span>Distance: <%= @trail.distance %></span><br>
     <span>Rating: <%= @trail.rating %></span><br>
-    <% if @trail.lat != "" && @trail.lng != "" %>
+    <% if @trail.lat != nil && @trail.lng != nil %>
       <span>Latitude: <%= @trail.lat %></span><br>
       <span>Longitude: <%= @trail.lng %></span><br>
     <% end %>
