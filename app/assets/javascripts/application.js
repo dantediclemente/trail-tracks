@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require gmaps/google
 //= require underscore
-//= require foundation
 //= require map
 //= require jquery-ui
 //= require jquery-ui/draggable
