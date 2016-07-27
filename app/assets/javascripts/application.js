@@ -27,6 +27,7 @@
 //= require highcharts/highcharts
 //= require highcharts/highcharts-more
 //= require highcharts/highstock
+//= require foundation
 
 $(function(){ $(document).foundation(); });
 
