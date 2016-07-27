@@ -29,9 +29,3 @@
 //= require highcharts/highstock
 
 $(function(){ $(document).foundation(); });
-
-$('document').ready(function() {
-  setTimeout(function() {
-    $('#flash').slideUp();
-  }, 1500);
-});

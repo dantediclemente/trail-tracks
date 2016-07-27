@@ -29,3 +29,9 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 })
 });
 }
+
+$('document').ready(function() {
+  setTimeout(function() {
+    $('#flash').slideUp();
+  }, 1500);
+});
