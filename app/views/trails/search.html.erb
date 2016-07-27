@@ -1,0 +1,8 @@
+<div class="row large-6 columns">
+  <h4>Search Results</h4>
+  <% @results.each do |result| %>
+  <div class="callout primary">
+    <%= link_to result.name, trail_path(result.id) %><br>
+  </div>
+  <% end %>
+</div>

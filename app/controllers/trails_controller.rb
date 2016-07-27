@@ -1,5 +1,13 @@
 class TrailsController < ApplicationController
   before_filter :authenticate_user!, except: [:home]
+
+  def search
+    trails = Trail.all
+    my_trails = trails.where(user_id: current_user.id)
+    @results = my_trails.where("name ILIKE ?", "%#{params[:q]}%")
+    render :search
+  end
+
   def home
     if user_signed_in?
       trails = Trail.all
@@ -19,12 +27,12 @@ class TrailsController < ApplicationController
 
     @sorted = trail_distance_by_year.sort
 
-    @timeline = LazyHighCharts::HighChart.new('graph') do |f|
+    @timeline = LazyHighCharts::HighChart.new('graph', :style=>"height:90%") do |f|
       f.title(text: "Trail Timeline")
       f.options[:chart][:defaultSeriesType] = "line"
       f.xAxis(categories: @sorted.map { |year| year[0] })
       f.series(:name=>'Distance (mi.)', :data=> @sorted.map { |year| year[1] })
-    end 
+    end
     end
   end
 

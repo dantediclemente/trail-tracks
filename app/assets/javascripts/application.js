@@ -17,6 +17,11 @@
 //= require foundation
 //= require map
 //= require jquery-ui
+//= require jquery-ui/draggable
+//= require jquery-ui/droppable
+//= require jquery-ui/resizable
+//= require jquery-ui/selectable
+//= require jquery-ui/sortable
 //= require wishlist
 //= require_tree .
 //= require highcharts/highcharts
@@ -24,3 +29,9 @@
 //= require highcharts/highstock
 
 $(function(){ $(document).foundation(); });
+
+$('document').ready(function() {
+  setTimeout(function() {
+    $('#flash').slideUp();
+  }, 1500);
+});
