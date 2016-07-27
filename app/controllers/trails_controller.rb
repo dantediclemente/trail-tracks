@@ -27,7 +27,7 @@ class TrailsController < ApplicationController
 
     @sorted = trail_distance_by_year.sort
 
-    @timeline = LazyHighCharts::HighChart.new('graph', :style=>"height:90%") do |f|
+    @timeline = LazyHighCharts::HighChart.new('graph', :style=>"height:92%") do |f|
       f.title(text: "Trail Timeline")
       f.options[:chart][:defaultSeriesType] = "line"
       f.xAxis(categories: @sorted.map { |year| year[0] })

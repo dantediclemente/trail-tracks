@@ -18,31 +18,38 @@
   </head>
 
   <body>
-    <div class="top-bar">
-      <div class="top-bar-left">
-        <ul class="menu">
-          <a href="/#"><li class="menu-text">TRAIL TRACKS</li></a>
-        </ul>
-      </div>
-      <div class="top-bar-right">
-        <ul class="dropdown menu" data-dropdown-menu style="max-width: 300px;">
-          <% if user_signed_in? %>
-          <li>
-            <a href="#">Profile</a>
-            <ul class="menu">
-              <li><%= link_to "Timeline", root_path %></li>
+    <nav class="top-bar" data-topbar role="navigation">
+      <div>
+        <div class="top-bar-left">
+          <ul class="menu">
+            <a href="/#"><li class="menu-text">TRAIL TRACKS</li></a>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="dropdown menu" data-dropdown-menu style="max-width: 300px;">
+            <% if user_signed_in? %>
+            <li>
+              <a href="#">Profile</a>
+              <ul class="menu">
+                <li><%= link_to "Timeline", root_path %></li>
                 <li><%= link_to "Trails", trails_path %></li>
                 <li><%= link_to "Add Trail", new_trail_path %></li>
                 <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-              <% else %>
+                <% else %>
+                <li>
+                  <%= link_to user_google_oauth2_omniauth_authorize_path do %>
+                    <%= image_tag "https://lh3.googleusercontent.com/7clxDYpmA-L1XXJP7wcRZMWV71MwDtZhubp1cF8Ss4cVjHFsqisncNP5vavacmMPhds=w300-rw", { class: "google" } %>
+                  <% end %>
+                </li>
                 <li><%= link_to "Sign In", new_user_session_path %></li>
                 <li><%= link_to "Sign Up", new_user_registration_path %></li>
               </li>
-            <% end %>
+              <% end %>
+            </ul>
           </ul>
-        </ul>
+        </div>
       </div>
-    </div>
+    </nav>
 
 
     <% flash.each do |name, msg| %>
