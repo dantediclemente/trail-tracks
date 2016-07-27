@@ -1,23 +1,35 @@
+<br>
 <div class="row">
-      <div class="large-6 columns all-trails connectedSortable"><br>
-        <h4>Hiked Trails</h4>
-        <ul id="true" class="connectedSortable">
-        <% @hiked_trails.each do |trail| %>
-        <div class="trail large-3 small-6 columns end callout secondary", data-hiked="<%= trail.hiked %>">
-          <li class="ui-state-highlight">
-          <%=link_to trail.name, trail_path(trail)%><br>
-        </li>
-        </div>
-      <% end %>
-    </ul>
+  <%= form_tag("/trails/search", method: "get") do %>
+  <div class=" large-8 large-offset-2 small-8 small-offset-2 columns">
+    <%= text_field_tag(:q) %>
   </div>
+  <div class=" large-2 small-2 columns">
+    <%= image_submit_tag("http://icons.iconarchive.com/icons/rafiqul-hassan/blogger/256/Search-icon.png", {class: 'search'}) %>
+  </div>
+<% end %>
+</div>
 
-      <div class="large-6 columns all-trails connectedSortable"><br>
-        <h4>Wish List</h4>
-        <ul id="false" class="connectedSortable">
+<div class="row">
+      <div class="large-6 columns all-trails"><br>
+        <h4 style="font-style: italic;">Hiked Trails</h4>
+        <ul class="true">
+          <% @hiked_trails.each do |trail| %>
+          <div class="trail large-12 small-6 columns end callout secondary">
+              <li class="ui-state-highlight", id="<%= trail.id %>" >
+                <%=link_to trail.name, trail_path(trail)%><br>
+              </li>
+            </div>
+          <% end %>
+        </ul>
+      </div>
+
+      <div class="large-6 columns all-trails"><br>
+        <h4 style="font-style: italic;">Wish List</h4>
+        <ul class="false">
         <% @wish_trails.each do |trail| %>
-        <div class="trail large-3 small-6 columns end callout secondary", data-hiked="<%= trail.hiked %>">
-          <li class="ui-state-highlight">
+        <div id="dante" class="trail-false <%= trail.id %> large-12 small-6 columns end callout secondary", data-hiked="<%= trail.hiked %>">
+          <li>
           <%=link_to trail.name, trail_path(trail)%><br>
         </li>
         </div>

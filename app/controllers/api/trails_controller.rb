@@ -9,4 +9,10 @@ class Api::TrailsController < ApiController
     trail = Trail.find(params[:id])
     render json: { trail: trail }, status: :ok
   end
+
+  def update
+    trail = Trail.find(params[:id])
+    trail.update_attributes(hiked: true)
+    render json: { id: params[:id] }.to_json, status: :ok
+  end
 end
